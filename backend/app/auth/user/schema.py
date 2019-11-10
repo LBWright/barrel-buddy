@@ -9,3 +9,4 @@ class UserSchema(ma.ModelSchema):
         model = User
         load_only = ("password",)
         dump_only = ("id",)
+
