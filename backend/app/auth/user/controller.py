@@ -19,6 +19,7 @@ class UserListResource(Resource):
         except ValidationError as err:
             return err.messages, 400
 
+        user.set_password(user.password)
         user.save()
 
         return user_schema.dump(user)

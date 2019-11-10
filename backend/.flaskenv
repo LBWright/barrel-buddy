@@ -1,0 +1,2 @@
+FLASK_APP=barrelbuddy
+FLASK_ENV=development

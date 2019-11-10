@@ -10,7 +10,7 @@ class User(db.Model):
     last_name = db.Column(db.Text)
     email = db.Column(db.Text)
     # separated by CSV right now
-    roles = db.Column(db.Text)
+    roles = db.Column(db.Text, default="user")
     is_active = db.Column(db.Boolean, default=True, server_default="true")
     date_joined = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
@@ -47,6 +47,5 @@ class User(db.Model):
         self.password = guard.hash_password(raw_password)
 
     def save(self):
-        self.set_password(self.password)
         db.session.add(self)
         db.session.commit()
